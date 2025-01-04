@@ -11,9 +11,9 @@
 #include "mruby/string.h"
 #include "mruby/proc.h"
 
-#include "opcode.h"
+#include "mruby/opcode.h"
 #include "error.h"
-
+#include "mruby/error.h"
 #include <stdlib.h>
 #include <sys/stat.h>
 
@@ -216,6 +216,11 @@ mrb_mruby_require_gem_init(mrb_state *mrb)
 
   mrb_define_method(mrb, krn, "_load_rb_str",   mrb_require_load_rb_str,   MRB_ARGS_ANY());
   mrb_define_method(mrb, krn, "_load_mrb_file", mrb_require_load_mrb_file, MRB_ARGS_REQ(1));
+}
+
+void
+mrb_mruby_require_gem_final(mrb_state *mrb)
+{
 }
 
 void
